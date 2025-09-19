@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 
 // Supabase 설정 주석 처리 (환경 변수 설정 후 활성화)
 // const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js'
 // export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // 임시 mock 객체
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const supabase = null as any
 
 export type Database = {

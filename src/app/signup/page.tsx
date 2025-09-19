@@ -82,7 +82,7 @@ export default function SignupPage() {
         alert('회원가입이 완료되었습니다. 이메일을 확인해주세요.')
         router.push('/login')
       }
-    } catch (err) {
+    } catch {
       setError('회원가입 중 오류가 발생했습니다.')
     } finally {
       setLoading(false)
