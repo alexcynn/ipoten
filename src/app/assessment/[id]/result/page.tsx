@@ -3,7 +3,7 @@
 import { useParams, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Download, Calendar, AlertTriangle, CheckCircle, TrendingUp } from 'lucide-react'
-import { mockAssessments, mockChildren, categoryNames, categoryColors } from '@/lib/mockData'
+import { mockAssessments, mockChildren, categoryNames } from '@/lib/mockData'
 
 export default function AssessmentResultPage() {
   const params = useParams()

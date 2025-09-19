@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { Play, CheckCircle, Users, Star } from 'lucide-react'
-import { mockVideos, mockAssessmentResults, categoryNames } from '@/lib/mockData'
+import { mockVideos } from '@/lib/mockData'
 
 export default function Home() {
   // 최신 평가 결과 (최대 3개)
-  const recentResults = mockAssessmentResults.slice(0, 3)
+  // const recentResults = mockAssessmentResults.slice(0, 3)
   // 추천 영상 (featured 영상들)
   const featuredVideos = mockVideos.filter(video => video.isFeatured).slice(0, 3)
 

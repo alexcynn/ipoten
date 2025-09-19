@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, AlertTriangle } from 'lucide-react'
 import { mockAssessments, mockQuestions, categoryNames, categoryColors } from '@/lib/mockData'
 import { Assessment, Question, QuestionType, AnswerType } from '@/lib/types'
 
@@ -40,7 +40,7 @@ export default function AssessmentDetailPage() {
       // orderIndex별로 질문들을 그룹화
       const groupedByOrder = questions.reduce((acc, question) => {
         if (!acc[question.orderIndex]) {
-          acc[question.orderIndex] = {}
+          acc[question.orderIndex] = {} as Record<QuestionType, Question>
         }
         acc[question.orderIndex][question.questionType] = question
         return acc
@@ -82,6 +82,8 @@ export default function AssessmentDetailPage() {
   const progress = ((currentGroupIndex + 1) / questionGroups.length) * 100
 
   const handleAnswer = (answer: AnswerType) => {
+    if (!currentQuestion) return
+
     setAnswers(prev => ({
       ...prev,
       [currentQuestion.id]: answer
@@ -209,7 +211,7 @@ export default function AssessmentDetailPage() {
               <span className="text-sm font-medium text-ipoten-blue">
                 문항 {currentGroup.orderIndex} - {getQuestionTypeLabel(currentQuestionType)}
               </span>
-              {currentQuestion.isDelayIndicator && (
+              {currentQuestion?.isDelayIndicator && (
                 <div className="flex items-center text-amber-600">
                   <AlertTriangle className="w-4 h-4 mr-1" />
                   <span className="text-sm">발달지연 신호</span>
@@ -218,7 +220,7 @@ export default function AssessmentDetailPage() {
             </div>
 
             <h2 className="text-xl font-semibold text-ipoten-gray-dark mb-6">
-              {currentQuestion.content}
+              {currentQuestion?.content}
             </h2>
           </div>
 
@@ -269,7 +271,7 @@ export default function AssessmentDetailPage() {
 
           <div className="text-sm text-gray-500 self-center">
             {currentQuestionType === 'q1' && (
-              <span>기본 문항입니다. 할 수 있다면 '네'를, 어렵다면 다른 선택지를 선택해주세요.</span>
+              <span>기본 문항입니다. 할 수 있다면 &apos;네&apos;를, 어렵다면 다른 선택지를 선택해주세요.</span>
             )}
             {currentQuestionType === 'q2' && (
               <span>조건을 변경한 문항입니다.</span>

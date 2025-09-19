@@ -6,7 +6,6 @@ import {
   AssessmentResult,
   Video,
   CounselorSession,
-  Booking,
   AssessmentCategory
 } from './types'
 
