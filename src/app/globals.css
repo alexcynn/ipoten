@@ -2,7 +2,16 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #424242;
+
+  /* iPoten 색상 시스템 */
+  --ipoten-blue: #1E88E5;
+  --ipoten-orange: #FFB74D;
+  --ipoten-green: #4CAF50;
+  --ipoten-red: #F44336;
+  --ipoten-yellow: #FFE082;
+  --ipoten-gray-light: #F5F5F5;
+  --ipoten-gray-dark: #424242;
 }
 
 @theme inline {
@@ -10,17 +19,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* iPoten 커스텀 색상 */
+  --color-ipoten-blue: var(--ipoten-blue);
+  --color-ipoten-orange: var(--ipoten-orange);
+  --color-ipoten-green: var(--ipoten-green);
+  --color-ipoten-red: var(--ipoten-red);
+  --color-ipoten-yellow: var(--ipoten-yellow);
+  --color-ipoten-gray-light: var(--ipoten-gray-light);
+  --color-ipoten-gray-dark: var(--ipoten-gray-dark);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  line-height: 1.6;
 }
