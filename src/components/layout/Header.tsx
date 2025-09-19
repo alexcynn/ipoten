@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -22,10 +23,14 @@ export default function Header() {
           {/* 로고 */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-8 h-8 bg-ipoten-blue rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-lg">아</span>
-              </div>
-              <span className="text-xl font-bold text-ipoten-blue">아이포텐</span>
+              <Image
+                src="/aipoten.png"
+                alt="아이포텐"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                priority
+              />
             </Link>
           </div>
 
@@ -51,7 +56,7 @@ export default function Header() {
               로그인
             </Link>
             <Link
-              href="/register"
+              href="/signup"
               className="bg-ipoten-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors duration-200"
             >
               회원가입
@@ -97,7 +102,7 @@ export default function Header() {
                   로그인
                 </Link>
                 <Link
-                  href="/register"
+                  href="/signup"
                   className="bg-ipoten-blue text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-blue-600 transition-colors duration-200 mx-3 mt-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
